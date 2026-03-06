@@ -6,6 +6,17 @@
 يقارن الهَاش مع الهَاش الأصلي اللي انت تحدده.
 لو مختلف → يعني حد عبث بالكود، فيظهر تنبيه والكود يتوقف.
 */
+const fs = require("fs");
+const crypto = require("crypto");
+
+const filePath = "background.js"; // غيّر لملفك
+const fileBuffer = fs.readFileSync(filePath);
+const hashSum = crypto.createHash("sha256");
+hashSum.update(fileBuffer);
+
+const hex = hashSum.digest("hex");
+console.log("SHA256 Hash:", hex);
+
 const ORIGINAL_HASH = "ضع هنا SHA256 النهائي بعد Obfuscation";
 (async function verifyIntegrity() {
     const scriptText = document.currentScript.textContent;
@@ -33,29 +44,3 @@ const ORIGINAL_HASH = "ضع هنا SHA256 النهائي بعد Obfuscation";
     }
     setInterval(detectDevTools, 1000);
 })();
-
-
-//══════[ Anti-Tamper Variables & Functions ]══════
-/*يحمي المتغيرات والدوال المهمة من التغيير.
-مثال: storedTokens أو showToast.
-لو أحد حاول تعديلهم → غير ممكن بسبب writable:false و configurable:false.
-*/
-Object.defineProperty(window, "storedTokens", {configurable:false, writable:false});
-const protectedFunctions = ["createButton", "showToast", "requestAccessKey"];
-protectedFunctions.forEach(fnName => {
-    const fn = window[fnName];
-    if(fn) Object.defineProperty(window, fnName, {configurable:false, writable:false});
-});
-
-
-//══════[ Anti-Tamper Runtime ]══════
-/*
-يراقب أي محاولة لتغيير البيانات الأساسية أثناء تشغيل الكود، مثل localStorage.
-لو حد حذف أو غيّر البيانات → يظهر تحذير والكود يتوقف.
-*/
-setInterval(() => {
-    if(window.localStorage.getItem("discordToolTokens") === null){
-        alert("Tampering detected with tokens!");
-        throw new Error("Tampering detected");
-    }
-}, 1000);
