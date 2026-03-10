@@ -1,3 +1,4 @@
+/*
 // ==UserScript==
 // @name         Fenix Discord Tool
 // @namespace    http://tampermonkey.net/
@@ -8,13 +9,13 @@
 // @run-at       document-start
 // @grant        none
 // ==/UserScript==
-
+*/
 (function() {
 
 "use strict"
 
 //══════[ Font Setup ]══════
-
+/*
 const styleLink = document.createElement('link')
 styleLink.href = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap"
 styleLink.rel = "stylesheet"
@@ -23,7 +24,7 @@ document.head.appendChild(styleLink)
 const globalStyle = document.createElement('style')
 globalStyle.textContent = `*{margin:0;padding:0;font-family:"IBM Plex Sans",sans-serif;box-sizing:border-box;text-decoration:none;font-weight:bold;}`
 document.head.appendChild(globalStyle)
-
+*/
 //══════[ Toast Container ]══════
 
 const toastContainer = document.createElement("div")
@@ -402,7 +403,7 @@ onSuccess();
 }
 };
 }
-
+/*
 //===== Run Quest Button with Key =====
 const runQuestBtn = createButton("Run Quest", "#2F3136", icons.questRun, () => {
 requestAccessKey(() => {
@@ -419,8 +420,7 @@ showToast("حدث خطأ أثناء تنفيذ الأمر", false);
 })
 
 btnContainer.appendChild(runQuestBtn);
-
-
+*/
 //===== New Quest List Expand Button (زر السهم الجديد) =====
 
 let questListExpanded = false;
