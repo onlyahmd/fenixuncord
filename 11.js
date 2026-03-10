@@ -7,7 +7,7 @@
 // @match        *discord.com*
 // @run-at       document-start
 // @grant        none
-// @require      https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/22.js?v=1
+// @require      https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/3.js?v=1
 // ==/UserScript==
 
 (function() {
