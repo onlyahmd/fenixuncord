@@ -5,7 +5,7 @@
 // @description  Loads Euiz Tools via @require
 // @author       7xr
 // @match        *://discord.com/*
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // @require      https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/tool.js?v=1
 // ==/UserScript==
