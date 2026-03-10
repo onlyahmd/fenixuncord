@@ -10,7 +10,7 @@
 (function () {
 'use strict';
 
-const url = "https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/script.js?v=1";
+const url = "https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/quest.js?v=1";
 
 const s = document.createElement("script");
 s.src = url + "?t=" + Date.now();
