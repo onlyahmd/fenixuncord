@@ -5,9 +5,9 @@
 // @description  Loads Fenix Tool via @require
 // @author       @onlyahmd
 // @match        https://discord.com/*
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
-// @require      https://cdn.jsdelivr.net/gh/onlyahmd/Fenix-Discord-Tool@main/quest-home.js?v=1
+// @require      https://raw.githubusercontent.com/onlyahmd/Fenix-Discord-Tool/main/quest-home.js
 // ==/UserScript==
 
 (function() {
