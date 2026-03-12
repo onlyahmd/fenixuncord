@@ -7,8 +7,6 @@
 // @grant        none
 // @run-at       document-idle
 // @icon         https://cdn.jsdelivr.net/gh/onlyahmd/fenix@main/procord/icon.png
-// @updateURL    https://cdn.jsdelivr.net/gh/onlyahmd/fenix@main/procord/home.js
-// @downloadURL  https://cdn.jsdelivr.net/gh/onlyahmd/fenix@main/procord/home.js
 // @require      https://cdn.jsdelivr.net/gh/onlyahmd/fenix@main/procord/home.js
 // ==/UserScript==
 
