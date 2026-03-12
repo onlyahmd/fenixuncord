@@ -248,7 +248,7 @@ var undiscordTemplate = (`
 d="M5 6.99902V18.999C5 20.101 5.897 20.999 7 20.999H17C18.103 20.999 19 20.101 19 18.999V6.99902H5ZM11 17H9V11H11V17ZM15 17H13V11H15V17Z">
 </path>
 </svg>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <h3>Fenix Uncord</h3>
 <div class="vert-divider"></div>
 <span>Developed By @onlyahmd — All rights reserved 2019 ©</span>
@@ -263,7 +263,7 @@ d="M18.4 4L12 10.4L5.6 4L4 5.6L10.4 12L4 18.4L5.6 20L12 13.6L18.4 20L20 18.4L13.
 </div>
 <div class="window-body" style="display: flex; flex-direction: row;">
 <div class="sidebar scroll">
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 
 <fieldset>
 <legend>
@@ -344,7 +344,7 @@ Messages Filter
 </div>
 </fieldset>
 
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details open style="display:none;">
 <summary>General</summary>
 <fieldset>
@@ -387,7 +387,7 @@ Channel ID
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details style="display:none;">
 <summary>Wipe Archive</summary>
 <fieldset>
@@ -405,7 +405,7 @@ Select the "messages/index.json" file from the discord archive.
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details style="display:none;">
 <summary>Filter</summary>
 <fieldset>
@@ -444,7 +444,7 @@ Delete messages that match the regular expression
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details style="display:none;">
 <summary>Messages interval</summary>
 <fieldset>
@@ -469,7 +469,7 @@ Specify an interval to delete messages.
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details style="display:none;">
 <summary>Date interval</summary>
 <fieldset>
@@ -495,7 +495,7 @@ Delete messages that were posted between the two dates.
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <details style="display:none;">
 <summary>Advanced settings</summary>
 <fieldset>
@@ -536,14 +536,14 @@ Authorization Token
 </div>
 </fieldset>
 </details>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <div></div>
 <div class="info" style="display:none">
 Undiscord {{VERSION}}
 <br> victornpb
 </div>
 </div>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <div class="main col">
 <div class="tbar col">
 <div class="row">
@@ -559,7 +559,7 @@ Undiscord {{VERSION}}
 <progress id="progressBar" style="display:none;"></progress>
 </div>
 </div>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <pre id="logArea" class="logarea scroll">
 <!--
 <div class="" style="background: var(--background-mentioned); padding: .5em;">Notice: Undiscord may be working slower than usual and<wbr>require multiple attempts due to a recent Discord update.<br>We're working on a fix, and we thank you for your patience.</div>
@@ -569,7 +569,7 @@ Undiscord {{VERSION}}
 </center>
 -->
 </pre>
-<!--════════════════════-->
+<!--══════════════════════════════════════════════════-->
 <div class="tbar footer row">
 <div id="progressPercent"></div>
 <span class="spacer"></span>
