@@ -1,5 +1,5 @@
 (function() {
-'use strict';
+"use strict";
 
 // ========================================
 // ⚙️ SETTINGS PANEL
@@ -26,10 +26,10 @@ let attempts = 0;
 
 const check = () => {
 if (attempts >= maxAttempts) {
-console.error('%c[ Discord Extension ] Failed to load webpack after multiple attempts.', 'color:red;font-weight:bold;');
+console.error("%c[ Discord Extension ] Failed to load webpack after multiple attempts.", "color:red;font-weight:bold;");
 return;
 }
-if (typeof window.webpackChunkdiscord_app === 'undefined') {
+if (typeof window.webpackChunkdiscord_app === "undefined") {
 attempts++;
 setTimeout(check, checkInterval);
 return;
@@ -49,10 +49,10 @@ setTimeout(check, checkInterval);
 return;
 }
 
-console.info(`%c[ Discord Extension ] Webpack loaded with ${Object.keys(webpackRequire.c).length} modules.`, 'color:green;font-weight:bold;');
+console.info(`%c[ Discord Extension ] Webpack loaded with ${Object.keys(webpackRequire.c).length} modules.`, "color:green;font-weight:bold;");
 callback(webpackRequire);
 } catch (error) {
-console.error('%c[ Discord Extension ] Error accessing webpack:', 'color:red;font-weight:bold;', error);
+console.error("%c[ Discord Extension ] Error accessing webpack:", "color:red;font-weight:bold;", error);
 attempts++;
 setTimeout(check, checkInterval);
 }
@@ -79,7 +79,7 @@ return null;
 // 3️⃣ Send Update to UI
 // ========================================
 function sendUpdate(type, data) {
-window.postMessage({ prefix:'DISCORD_QUEST_COMPLETER', type, data }, '*');
+window.postMessage({ prefix:"DISCORD_QUEST_COMPLETER", type, data }, "*");
 }
 
 // ========================================
@@ -97,19 +97,19 @@ const api = findModule(webpackRequire, m => m.Bo?.get)?.Bo;
 
 if (!ApplicationStreamingStore || !RunningGameStore || !QuestsStore || !ChannelStore || !GuildChannelStore || !FluxDispatcher || !api) {
 const missing = [];
-if (!ApplicationStreamingStore) missing.push('ApplicationStreamingStore');
-if (!RunningGameStore) missing.push('RunningGameStore');
-if (!QuestsStore) missing.push('QuestsStore');
-if (!ChannelStore) missing.push('ChannelStore');
-if (!GuildChannelStore) missing.push('GuildChannelStore');
-if (!FluxDispatcher) missing.push('FluxDispatcher');
-if (!api) missing.push('api');
-throw new Error(`Could not find stores: ${missing.join(',')}`);
+if (!ApplicationStreamingStore) missing.push("ApplicationStreamingStore");
+if (!RunningGameStore) missing.push("RunningGameStore");
+if (!QuestsStore) missing.push("QuestsStore");
+if (!ChannelStore) missing.push("ChannelStore");
+if (!GuildChannelStore) missing.push("GuildChannelStore");
+if (!FluxDispatcher) missing.push("FluxDispatcher");
+if (!api) missing.push("api");
+throw new Error(`Could not find stores: ${missing.join(",")}`);
 }
 
 return { ApplicationStreamingStore, RunningGameStore, QuestsStore, ChannelStore, GuildChannelStore, FluxDispatcher, api };
 } catch (error) {
-console.error('%c[ Discord Extension ] Error loading stores:', 'color:red;font-weight:bold;', error);
+console.error("%c[ Discord Extension ] Error loading stores:", "color:red;font-weight:bold;", error);
 return null;
 }
 }
@@ -166,7 +166,7 @@ if (state.currentProgress >= state.secondsNeeded) state.completed = true;
 console.log(`%c[Video Quest] "${state.questName}" Progress: ${Math.floor(state.currentProgress)}/${state.secondsNeeded}s`,"color:green;font-weight:bold;");
 
 // تحديث واجهة المستخدم
-sendUpdate('QUEST_UPDATE',{
+sendUpdate("QUEST_UPDATE",{
 id: state.quest.id,
 name: state.questName,
 progress: Math.floor(state.currentProgress),
@@ -194,7 +194,7 @@ let streamKey = `call:${quest.id}:1`;
 if (taskType==="PLAY_ACTIVITY") {
 const channelId = getVoiceChannelId(ChannelStore,GuildChannelStore);
 if (channelId) streamKey=`call:${channelId}:1`;
-else { console.warn(`%c[Heartbeat] No voice channel for "${questName}"`,'color:orange;font-weight:bold;'); return; }
+else { console.warn(`%c[Heartbeat] No voice channel for "${questName}"`,"color:orange;font-weight:bold;"); return; }
 }
 
 try {
@@ -204,10 +204,10 @@ const serverProgress = res.body?.progress?.[taskType]?.value ?? state.currentPro
 state.currentProgress = serverProgress;
 if (state.currentProgress>=secondsNeeded) state.completed = true;
 
-console.log(`%c[Heartbeat Quest] "${questName}" Progress: ${Math.floor(state.currentProgress)}/${secondsNeeded}s`,'color:blue;font-weight:bold;');
+console.log(`%c[Heartbeat Quest] "${questName}" Progress: ${Math.floor(state.currentProgress)}/${secondsNeeded}s`,"color:blue;font-weight:bold;");
 
 // تحديث واجهة المستخدم
-sendUpdate('QUEST_UPDATE',{
+sendUpdate("QUEST_UPDATE",{
 id: state.quest.id,
 name: state.questName,
 progress: Math.floor(state.currentProgress),
@@ -217,9 +217,9 @@ completed: state.completed
 
 if (state.completed) {
 await api.post({url:`/quests/${quest.id}/heartbeat`,body:{stream_key:streamKey,terminal:true}});
-console.log(`%c[Heartbeat Quest Completed] "${questName}" ✅`,'color:yellow;font-weight:bold;');
+console.log(`%c[Heartbeat Quest Completed] "${questName}" ✅`,"color:yellow;font-weight:bold;");
 
-sendUpdate('QUEST_UPDATE',{
+sendUpdate("QUEST_UPDATE",{
 id: state.quest.id,
 name: state.questName,
 progress: secondsNeeded,
@@ -229,7 +229,7 @@ completed: true
 }
 
 } catch(error) {
-console.error(`%c[Heartbeat Quest Error] "${questName}"`,'color:red;font-weight:bold;',error);
+console.error(`%c[Heartbeat Quest Error] "${questName}"`,"color:red;font-weight:bold;",error);
 }
 }
 
@@ -259,7 +259,7 @@ if (!activeQuests.length) return;
 
 const questStates = activeQuests.map(initializeQuestState);
 
-sendUpdate('QUEST_LIST',questStates.map(s=>({
+sendUpdate("QUEST_LIST",questStates.map(s=>({
 id: s.quest.id,
 name: s.questName,
 progress: Math.floor(s.currentProgress),

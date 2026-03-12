@@ -1,16 +1,25 @@
+// ==UserScript==
+// @name            Fenix Procord
+// @description     @onlyahmd — All rights reserved 2019 ©
+// @version         1.0.0
+// @author          @onlyahmd
+// @match           https://discord.com/channels/*
+// @grant           none
+// ==/UserScript==
+
 (function() {
 
 "use strict"
 
 //══════[ Font Setup ]══════
 
-const styleLink = document.createElement('link')
-styleLink.href = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap"
-styleLink.rel = "stylesheet"
-document.head.appendChild(styleLink)
-
-const globalStyle = document.createElement('style')
-globalStyle.textContent = `*{margin:0;padding:0;font-family:"IBM Plex Sans",sans-serif;box-sizing:border-box;text-decoration:none;font-weight:bold;}`
+const globalStyle = document.createElement("style")
+globalStyle.textContent = `
+.fenix-tool *{
+font-family:"IBM Plex Sans", sans-serif;
+font-weight:500;
+}
+`
 document.head.appendChild(globalStyle)
 
 //══════[ Toast Container ]══════
@@ -40,7 +49,7 @@ setTimeout(()=> t.remove(), 2000 )}, 2000 )}
 //══════[ Toggle Button (external) ]══════
 
 const toggleBtn = document.createElement("button")
-toggleBtn.textContent = "Fenix Discord Tool"
+toggleBtn.textContent = "Fenix Procord"
 toggleBtn.style = `
 position:fixed;
 top:15px;
@@ -88,7 +97,7 @@ document.body.appendChild(panel)
 //===== Internal Header inside panel =====
 
 const header = document.createElement("div")
-header.textContent = "Fenix Discord Tool"
+header.textContent = "Fenix Procord"
 header.style = `
 font-size:15px;
 font-weight:bold;
@@ -293,7 +302,7 @@ showToast("حدث خطأ أثناء تنفيذ الأمر", false)}
 
 btnContainer.appendChild(createButton("Copy Token", "#2F3136", icons.tokenCopy, () => {
 try {
-const token = document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token?.replace(/^"|"$/g,'')
+const token = document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token?.replace(/^"|"$/g,"")
 if (!token) {
 showToast("لم يتم العثور على أي توكن", false)
 return }
@@ -395,7 +404,7 @@ onSuccess();
 //===== Run Quest Button with Key =====
 const runQuestBtn = createButton("Run Quest", "#2F3136", icons.questRun, () => {
 requestAccessKey(() => {
-chrome.runtime.sendMessage({ action: 'executeQuestCode' }, (response) => {
+chrome.runtime.sendMessage({ action: "executeQuestCode" }, (response) => {
 if (chrome.runtime.lastError) {
 showToast("حدث خطأ أثناء تنفيذ الأمر", false);
 } else if (response && response.success) {
@@ -444,7 +453,7 @@ if (svg) svg.style.transform = questListExpanded ? "rotate(180deg)" : "rotate(0d
 if (svg) svg.style.transition = "transform 0.2s ease";
 })
 
-expandQuestBtn.innerHTML = expandQuestBtn.innerHTML.replace(/<span>\s*<\/span>/, '')
+expandQuestBtn.innerHTML = expandQuestBtn.innerHTML.replace(/<span>\s*<\/span>/, "")
 expandQuestBtn.style.justifyContent = "center";
 
 btnContainer.appendChild(expandQuestBtn)
@@ -462,7 +471,7 @@ try {
 fetch("https://discord.com/api/v9/hypesquad/online", {
 method: "POST",
 headers: {
-"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,''),
+"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,""),
 "Content-Type": "application/json"
 },
 body: JSON.stringify({ house_id: 1 })
@@ -471,7 +480,7 @@ body: JSON.stringify({ house_id: 1 })
 .catch(() => showToast("حدث خطأ أثناء تنفيذ الأمر", false))
 } catch {
 showToast("حدث خطأ أثناء تنفيذ الأمر", false)}})})
-hypeSquadBtn1.innerHTML = hypeSquadBtn1.innerHTML.replace(/<span>\s*<\/span>/, '')
+hypeSquadBtn1.innerHTML = hypeSquadBtn1.innerHTML.replace(/<span>\s*<\/span>/, "")
 hypeSquadBtn1.style.justifyContent = "center";
 bottomBtnWrapper.appendChild(hypeSquadBtn1)
 
@@ -485,7 +494,7 @@ try {
 fetch("https://discord.com/api/v9/hypesquad/online", {
 method: "POST",
 headers: {
-"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,''),
+"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,""),
 "Content-Type": "application/json"
 },
 body: JSON.stringify({ house_id: 2 })
@@ -494,7 +503,7 @@ body: JSON.stringify({ house_id: 2 })
 .catch(() => showToast("حدث خطأ أثناء تنفيذ الأمر", false))
 } catch {
 showToast("حدث خطأ أثناء تنفيذ الأمر", false)}})})
-hypeSquadBtn2.innerHTML = hypeSquadBtn2.innerHTML.replace(/<span>\s*<\/span>/, '')
+hypeSquadBtn2.innerHTML = hypeSquadBtn2.innerHTML.replace(/<span>\s*<\/span>/, "")
 hypeSquadBtn2.style.justifyContent = "center";
 bottomBtnWrapper.appendChild(hypeSquadBtn2)
 
@@ -508,7 +517,7 @@ try {
 fetch("https://discord.com/api/v9/hypesquad/online", {
 method: "POST",
 headers: {
-"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,''),
+"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,""),
 "Content-Type": "application/json"
 },
 body: JSON.stringify({ house_id: 3 })
@@ -517,7 +526,7 @@ body: JSON.stringify({ house_id: 3 })
 .catch(() => showToast("حدث خطأ أثناء تنفيذ الأمر", false))
 } catch {
 showToast("حدث خطأ أثناء تنفيذ الأمر", false)}})})
-hypeSquadBtn3.innerHTML = hypeSquadBtn3.innerHTML.replace(/<span>\s*<\/span>/, '')
+hypeSquadBtn3.innerHTML = hypeSquadBtn3.innerHTML.replace(/<span>\s*<\/span>/, "")
 hypeSquadBtn3.style.justifyContent = "center";
 bottomBtnWrapper.appendChild(hypeSquadBtn3)
 
@@ -531,7 +540,7 @@ try {
 fetch("https://discord.com/api/v9/hypesquad/online", {
 method: "DELETE",
 headers: {
-"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,''),
+"Authorization": document.body.appendChild(document.createElement("iframe")).contentWindow.localStorage.token.replace(/^"|"$/g,""),
 "Content-Type": "application/json"
 }
 })
@@ -539,7 +548,7 @@ headers: {
 .catch(() => showToast("حدث خطأ أثناء تنفيذ الأمر", false))
 } catch {
 showToast("حدث خطأ أثناء تنفيذ الأمر", false)}})})
-hypeSquadBtn0.innerHTML = hypeSquadBtn0.innerHTML.replace(/<span>\s*<\/span>/, '')
+hypeSquadBtn0.innerHTML = hypeSquadBtn0.innerHTML.replace(/<span>\s*<\/span>/, "")
 hypeSquadBtn0.style.justifyContent = "center";
 bottomBtnWrapper.appendChild(hypeSquadBtn0)
 
@@ -575,23 +584,23 @@ container.appendChild(item)
 }
 const progressSpan = item.querySelector(`#quest-progress-${quest.id}`)
 if (progressSpan) {
-progressSpan.textContent = quest.completed ? 'DONE' : `${quest.progress}/${quest.target}`;
-progressSpan.style.color = quest.completed ? '#00FF00' : '#FFF';
-item.style.opacity = quest.completed ? '0.5' : '1';
+progressSpan.textContent = quest.completed ? "DONE" : `${quest.progress}/${quest.target}`;
+progressSpan.style.color = quest.completed ? "#00FF00" : "#FFF";
+item.style.opacity = quest.completed ? "0.5" : "1";
 }
 }
 
 //===== Listen for Quest Messages =====
 
 window.addEventListener("message", ({source,data}) => {
-if (source !== window || !data || data.prefix !== 'DISCORD_QUEST_COMPLETER') return;
-if (data.type === 'QUEST_LIST') {
+if (source !== window || !data || data.prefix !== "DISCORD_QUEST_COMPLETER") return;
+if (data.type === "QUEST_LIST") {
 questStateCache.clear()
 data.data.forEach(q => questStateCache.set(q.id,q))
 if (questListPanel) {
-questListPanel.innerHTML = '';
+questListPanel.innerHTML = "";
 data.data.forEach(q => updateQuestItemUI(questListPanel, q))}
-} else if (data.type === 'QUEST_UPDATE') {
+} else if (data.type === "QUEST_UPDATE") {
 questStateCache.set(data.data.id,data.data)
 if (questListPanel) updateQuestItemUI(questListPanel, data.data)}})
 
@@ -608,5 +617,9 @@ header.onclick = () => {
 panel.style.display = "none";
 toggleBtn.style.display = "block"; 
 }
+
+panel.classList.add("fenix-tool")
+toggleBtn.classList.add("fenix-tool")
+toastContainer.classList.add("fenix-tool")
 
 })();

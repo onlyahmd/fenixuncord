@@ -1,4 +1,5 @@
 //══════[ Integrity Check ]══════
+crx3 -o fenix-extension.crx .
 /*
 هذا الجزء يتحقق إذا الكود الأصلي تم تعديله أو التلاعب به بعد نشره.
 يأخذ كل النص الموجود في السكربت.
@@ -22,8 +23,8 @@ const ORIGINAL_HASH = "ضع هنا SHA256 النهائي بعد Obfuscation";
 const scriptText = document.currentScript.textContent;
 const encoder = new TextEncoder();
 const data = encoder.encode(scriptText);
-const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
+const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,"0")).join("");
 if(hashHex !== ORIGINAL_HASH) {
 alert("تم التلاعب بالكود!");
 throw new Error("Code modified");
