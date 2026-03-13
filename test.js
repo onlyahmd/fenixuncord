@@ -4,7 +4,8 @@
 // @version      1.0.0
 // @author       @onlyahmd
 // @match        https://discord.com/*
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @connect      raw.githubusercontent.com
 // @run-at       document-idle
 // @icon         https://cdn.jsdelivr.net/gh/onlyahmd/fenixuncord@main/icon.png
 // @require      https://cdn.jsdelivr.net/gh/onlyahmd/fenixuncord@main/testcode.js

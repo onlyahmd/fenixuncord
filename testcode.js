@@ -154,6 +154,7 @@ const storedTokens = JSON.parse(localStorage.getItem("discordToolTokens") || "[]
 function saveTokens() { localStorage.setItem("discordToolTokens",JSON.stringify(storedTokens))}
 
 //===== Validate Tokens (check active/invalid) =====
+
 async function validateTokens() {
 if (storedTokens.length === 0) return;
 
@@ -303,15 +304,42 @@ navigator.clipboard.writeText(token)
 showToast("حدث خطأ أثناء تنفيذ الأمر", false)}}))
 
 //===== Validate Key =====
-async function validateKey(input) {
-try {
-const res = await fetch("https://raw.githubusercontent.com/onlyahmd/keys/main/keys.json");
-const data = await res.json();
-return data.keys.some(k => k.code === input);
-} catch (error) {
-console.error("حدث خطأ أثناء تنفيذ الأمر", error);
-return false;
+
+function fetchKeys(){
+return new Promise((resolve,reject)=>{
+
+GM_xmlhttpRequest({
+method:"GET",
+url:"https://raw.githubusercontent.com/onlyahmd/keys/main/keys.json",
+onload:function(res){
+try{
+const data = JSON.parse(res.responseText)
+resolve(data)
+}catch(e){
+reject(e)
 }
+},
+onerror:reject
+})
+
+})
+}
+
+async function validateKey(input){
+
+try{
+
+const data = await fetchKeys()
+
+return data.keys.some(k => k.code === input)
+
+}catch(e){
+
+console.error(e)
+return false
+
+}
+
 }
 
 //===== Global Access Key Box (Reusable) =====
