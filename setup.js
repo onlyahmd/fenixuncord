@@ -6,7 +6,7 @@
 // @match        https://discord.com/*
 // @run-at       document-idle
 // @grant        none
-// @icon         https://cdn.jsdelivr.net/gh/onlyahmd/fenixuncord@main/icon1.png
+// @icon         https://cdn.jsdelivr.net/gh/onlyahmd/fenixuncord@main/icon.png
 // @require      https://cdn.jsdelivr.net/gh/onlyahmd/fenixuncord@main/code.js
 // ==/UserScript==
 
